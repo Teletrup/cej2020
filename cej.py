@@ -3,10 +3,10 @@ import numpy as Np
 from PIL import Image
 
 
-strip_off = 500
-block_w = 20
-block_h = 20
-edge_thres = 100
+strip_off = 430
+block_w = 10
+block_h = 5
+edge_thres = 120
 
 
 def norm255(array):
@@ -38,7 +38,7 @@ for f_path in sys.argv[1:]:
 		blocks[i] /= block_w * block_h
 	for i in range(len(blocks) - 1):
 		blocks[i] = abs(blocks[i] - blocks[i+1])
-	norm255(blocks)
+	norm255(blocks)									#dlaczego zamienianie tych wywołań crashuje?
 	thres255(blocks, edge_thres)
 	for i in range(strip_off, strip_off + block_h):
 		for j in range(0, w):
