@@ -37,7 +37,7 @@ for f_path in sys.argv[1:]:
 	for i in range(len(blocks)):
 		blocks[i] /= block_w * block_h
 	for i in range(len(blocks) - 1):
-		blocks[i] = blocks[i] - blocks[i+1]
+		blocks[i] = abs(blocks[i] - blocks[i+1])
 	norm255(blocks)
 	thres255(blocks, edge_thres)
 	for i in range(strip_off, strip_off + block_h):
