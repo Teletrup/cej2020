@@ -30,7 +30,6 @@ for f_path in sys.argv[1:]:
 	image = Image.open(f_path)
 	w, h = image.size
 	blocks = Np.zeros(w // block_w + 1, float)
-	blocks = Np.zeros(len(blocks), float)
 	for i in range(strip_off, strip_off + block_h):
 		for j in range(0, w):
 			px = image.getpixel((j, i))
